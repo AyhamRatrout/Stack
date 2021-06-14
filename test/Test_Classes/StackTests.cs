@@ -21,7 +21,8 @@ namespace Test_Classes
         }
 
         [Fact]
-        public void TestClearValid(){
+        public void TestClearValid()
+        {
             //arrange
             var stack = new Stack<String>();
             stack.Push("Foothill Technology");
@@ -36,7 +37,8 @@ namespace Test_Classes
         }
 
         [Fact]
-        public void TestClearInvalid(){
+        public void TestClearInvalid()
+        {
             //arrange
             var stack = new Stack<String>();
             var expected = false;
@@ -50,7 +52,8 @@ namespace Test_Classes
         }
 
         [Fact]
-        public void TestPeakValid(){
+        public void TestPeakValid()
+        {
             //arrange
             var stack = new Stack<String>();
             stack.Push("Foothill Technology");
@@ -65,7 +68,8 @@ namespace Test_Classes
         }
 
         [Fact]
-        public void TestPeakInvalid(){
+        public void TestPeakInvalid()
+        {
             //arrange
             var stack = new Stack<String>();
             var expected = false;
@@ -79,7 +83,8 @@ namespace Test_Classes
         }
 
         [Fact]
-        public void TestPopValidOnlyOneElementInStack(){
+        public void TestPopValidOnlyOneElementInStack()
+        {
             //arrange
             var stack = new Stack<double>();
             stack.Push(18.9);
@@ -93,7 +98,8 @@ namespace Test_Classes
         }
 
         [Fact]
-        public void TestPopValidMultipleElementsInStack(){
+        public void TestPopValidMultipleElementsInStack()
+        {
             //arrange
             var stack = new Stack<double>();
             stack.Push(18.9);

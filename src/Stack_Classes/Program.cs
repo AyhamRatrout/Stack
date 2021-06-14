@@ -18,7 +18,8 @@ namespace Stack_Classes
         }
 
         //Tests that the Push and Print Methods of the Stack class work. Test was successful!
-        public static void TestPushAndPrintMethods(){
+        public static void TestPushAndPrintMethods()
+        {
             var stack = new Stack<String>(); //creates a new stack instance
             stack.Print(); //to check if the error message does get displayed
             stack.Push("Foothill"); //pushes first string to stack
@@ -31,7 +32,8 @@ namespace Stack_Classes
         }
 
         //Tests that the Clear method works as intended. Test was successful!
-        public static void TestClearMethod(){
+        public static void TestClearMethod()
+        {
             var stack = new Stack<double>(); //creates a new stack
             stack.Clear(); //to test if the error message gets displayed
             stack.Push(19.7);
@@ -43,7 +45,8 @@ namespace Stack_Classes
         }
 
         //Tests that the Peak method works as intended. Test was successful!
-        public static void TestPeakMethod(){
+        public static void TestPeakMethod()
+        {
             var stack = new Stack<int>();
             stack.Peak(); //checks if the error message gets displayed
             stack.Push(1);
@@ -56,7 +59,8 @@ namespace Stack_Classes
         }
 
         //Tests that the Pop mwthod works as intended. Test was successful!
-        public static void TestPopMethod(){
+        public static void TestPopMethod()
+        {
             var stack = new Stack<double>();
             stack.Push(19.7);
             stack.Print();
@@ -73,7 +77,8 @@ namespace Stack_Classes
         }
 
         //Tests that all the components work together for each case
-        public static void TestItAllTogether(){
+        public static void TestItAllTogether()
+        {
             var stack = new Stack<string>();
             //test the edge case when the stack is empty
             stack.Print();

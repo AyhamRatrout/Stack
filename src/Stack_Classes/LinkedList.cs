@@ -12,7 +12,8 @@ namespace Stack_Classes
             public T Data;
 
             //Creates a Node instance that contains the data in the parameter and which does not point to any Node instance
-            public Node(T data){
+            public Node(T data)
+            {
                 this.Data = data;
                 this.Next = null;
             }
@@ -21,18 +22,23 @@ namespace Stack_Classes
         private Node Head; //Node reference to the Head of the list
 
         //Class constructor creates an instance of a LinkedList with an empty Head reference 
-        public LinkedList(){
+        public LinkedList()
+        {
             this.Head = null;
         }
 
         //Adds an item to the end of the list. Returns true once the item has been added
-        public bool Add(T data){
-            if(IsEmpty()){
+        public bool Add(T data)
+        {
+            if (IsEmpty())
+            {
                 this.Head = new Node(data);
             }
-            else{
+            else
+            {
                 Node current = this.Head;
-                while(current.Next != null){
+                while (current.Next != null)
+                {
                     current = current.Next;
                 }
                 current.Next = new Node(data);
@@ -41,16 +47,20 @@ namespace Stack_Classes
         }
 
         //Removes the last object in the list and returns its data
-        public T Remove(){
+        public T Remove()
+        {
             T toReturn;
-            if(Head.Next == null){
+            if (Head.Next == null)
+            {
                 toReturn = Head.Data;
                 Head = null;
             }
-            else{
+            else
+            {
                 Node current = Head;
-                while(current.Next.Next != null){
-                current = current.Next;
+                while (current.Next.Next != null)
+                {
+                    current = current.Next;
                 }
                 toReturn = current.Next.Data;
                 current.Next = null;
@@ -59,19 +69,23 @@ namespace Stack_Classes
         }
 
         //Returns the data stored in the object at the top of the stack without removing it
-        public T GetLast(){
+        public T GetLast()
+        {
             Node current = this.Head;
-            while(current.Next != null){
+            while (current.Next != null)
+            {
                 current = current.Next;
             }
             return current.Data;
         }
 
         //Iterates through the LinkedList and prints out all the objects (elements) in the LinkedList from start to finish
-        public void PrintContents(){
+        public void PrintContents()
+        {
             Node current = this.Head;
             Console.Write(current.Data);
-            while(current.Next != null){
+            while (current.Next != null)
+            {
                 current = current.Next;
                 Console.Write(", " + current.Data);
             }
@@ -79,16 +93,20 @@ namespace Stack_Classes
         }
 
         //Removes all objects from the list when called
-        public void EmptyList(){
+        public void EmptyList()
+        {
             this.Head = null;
         }
 
         //Helper method that checks to see if a list is empty (has no elements), returns true if it is
-        public bool IsEmpty(){
-            if(this.Head == null){
+        public bool IsEmpty()
+        {
+            if (this.Head == null)
+            {
                 return true;
             }
-            else{
+            else
+            {
                 return false;
             }
         }
