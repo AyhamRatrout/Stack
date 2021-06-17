@@ -7,7 +7,7 @@ namespace Stack_Classes
     {
         private LinkedList<T> list;
 
-        public int Size{get; private set;}
+        public int Size { get; private set; }
 
         //Class constructor, creates an instance of LinkedList to implement the Stack structure and initializes its size to zero
         public Stack()
@@ -57,7 +57,7 @@ namespace Stack_Classes
         {
             if (IsEmpty())
             {
-                throw new InvalidOperationException("Invalid operation! Cannot retrieve the top item of empty stack...");                
+                throw new InvalidOperationException("Invalid operation! Cannot retrieve the top item of empty stack...");
             }
             else
             {
@@ -82,7 +82,8 @@ namespace Stack_Classes
         }
 
         //helper method that checks if the stack is empty. If it is, returns true otherwise returns false
-        private bool IsEmpty(){
+        private bool IsEmpty()
+        {
             return this.Size == 0;
         }
     }

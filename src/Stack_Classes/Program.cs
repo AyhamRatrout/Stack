@@ -6,16 +6,17 @@ namespace Stack_Classes
     {
         static void Main(string[] args)
         {
-            //TestStackPushMethod();
-            //Console.WriteLine("***********************************************************");
-            //TestStackPopMethod();
-            //Console.WriteLine("***********************************************************");
-            //TestStackPrintMethod();
-            //Console.WriteLine("***********************************************************");
-            //TestStackPeakMethod();
-            //Console.WriteLine("***********************************************************");
+            //test each one individually by commenting out the others as some throw exceptions
+            TestStackPushMethod();
+            Console.WriteLine("***********************************************************");
+            TestStackPopMethod();
+            Console.WriteLine("***********************************************************");
+            TestStackPrintMethod();
+            Console.WriteLine("***********************************************************");
+            TestStackPeakMethod();
+            Console.WriteLine("***********************************************************");
             TestStackClearMethod();
-            
+
         }
 
         //Tests the Push method by instantiating an empty stack, pushing one item at a time, checking that the size of the stack gets incremented by one 
@@ -104,7 +105,7 @@ namespace Stack_Classes
             stack.Peak(); //peak to the new top element
             stack.Print(); //print again to confirm that peak did not remove the element
             stack.Pop(); //remove top element
-            stack.Print(); 
+            stack.Print();
             stack.Peak();
             stack.Print();
             stack.Pop(); //stack should be empty now

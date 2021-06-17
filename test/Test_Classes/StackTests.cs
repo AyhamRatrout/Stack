@@ -1,7 +1,6 @@
 using System;
 using Xunit;
 using Stack_Classes;
-//using Microsoft.VisualStudio.Tes
 
 namespace Test_Classes
 {
@@ -75,7 +74,7 @@ namespace Test_Classes
 
             //assert
             Assert.Equal(expected, actual.Message);
-        }  
+        }
 
         //Tests that the Peak method does indeed print the object on the top of the stack without removing it by instantiating an empty stack, adding a number of elements to it
         //then peaking using Peak(), and popping after every peak to test multiple cases
@@ -99,7 +98,7 @@ namespace Test_Classes
             Assert.Equal("Solutions", actual1);
             Assert.Equal("Technology", actual2);
             Assert.Equal("Foothill", actual3);
-        }  
+        }
 
         //Tests that Peak method throws an InvalidOperationException with the message provided when asked to peak on an empty stack
         [Fact]

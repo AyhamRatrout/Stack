@@ -51,7 +51,7 @@ namespace Stack_Classes
         //Removes the last object in the list and returns its data. Throws an InvalidOperationException if list is empty
         public T Remove()
         {
-            if(IsEmpty())
+            if (IsEmpty())
             {
                 throw new InvalidOperationException("Invalid operation! Cannot remove from an empty list...");
             }
@@ -75,13 +75,13 @@ namespace Stack_Classes
                 }
                 this.Size--;
                 return toReturn;
-            }    
+            }
         }
 
         //Iterates through the LinkedList and prints out all the objects (elements) in the LinkedList from start to finish. If list is empty, displays an error message
         public void PrintContents()
         {
-            if(IsEmpty())
+            if (IsEmpty())
             {
                 Console.WriteLine("Cannot print the contents of an empty list...");
             }
@@ -97,11 +97,11 @@ namespace Stack_Classes
                 Console.WriteLine();
             }
         }
-        
+
         //Returns the last element in the list if it exists. Throws an InvalidOperationException is the list is empty
         public T GetLast()
         {
-            if(IsEmpty())
+            if (IsEmpty())
             {
                 throw new InvalidOperationException("Invalid operation! Cannot retrieve the last item of empty list...");
             }
@@ -119,7 +119,7 @@ namespace Stack_Classes
         //Removes all objects from the list when called. If list is empty, displays an error message 
         public void EmptyList()
         {
-            if(IsEmpty())
+            if (IsEmpty())
             {
                 Console.WriteLine("Operation failed! The list was already empty when the call was made...");
             }
