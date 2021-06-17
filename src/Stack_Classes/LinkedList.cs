@@ -20,15 +20,17 @@ namespace Stack_Classes
         }
 
         private Node Head; //Node reference to the Head of the list
+        private int Size;
 
         //Class constructor creates an instance of a LinkedList with an empty Head reference 
         public LinkedList()
         {
             this.Head = null;
+            this.Size = 0;
         }
 
-        //Adds an item to the end of the list. Returns true once the item has been added
-        public bool Add(T data)
+        //Adds an item (the passed in parameter) to the end of the list when invoked
+        public void Add(T data)
         {
             if (IsEmpty())
             {
@@ -43,72 +45,95 @@ namespace Stack_Classes
                 }
                 current.Next = new Node(data);
             }
-            return true;
+            this.Size++;
         }
 
-        //Removes the last object in the list and returns its data
+        //Removes the last object in the list and returns its data. Throws an InvalidOperationException if list is empty
         public T Remove()
         {
-            T toReturn;
-            if (Head.Next == null)
+            if(IsEmpty())
             {
-                toReturn = Head.Data;
-                Head = null;
+                throw new InvalidOperationException("Invalid operation! Cannot remove from an empty list...");
             }
             else
             {
-                Node current = Head;
-                while (current.Next.Next != null)
+                T toReturn;
+                if (Head.Next == null)
+                {
+                    toReturn = Head.Data;
+                    Head = null;
+                }
+                else
+                {
+                    Node current = Head;
+                    while (current.Next.Next != null)
+                    {
+                        current = current.Next;
+                    }
+                    toReturn = current.Next.Data;
+                    current.Next = null;
+                }
+                this.Size--;
+                return toReturn;
+            }    
+        }
+
+        //Iterates through the LinkedList and prints out all the objects (elements) in the LinkedList from start to finish. If list is empty, displays an error message
+        public void PrintContents()
+        {
+            if(IsEmpty())
+            {
+                Console.WriteLine("Cannot print the contents of an empty list...");
+            }
+            else
+            {
+                Node current = this.Head;
+                Console.Write(current.Data);
+                while (current.Next != null)
+                {
+                    current = current.Next;
+                    Console.Write(", " + current.Data);
+                }
+                Console.WriteLine();
+            }
+        }
+        
+        //Returns the last element in the list if it exists. Throws an InvalidOperationException is the list is empty
+        public T GetLast()
+        {
+            if(IsEmpty())
+            {
+                throw new InvalidOperationException("Invalid operation! Cannot retrieve the last item of empty list...");
+            }
+            else
+            {
+                Node current = this.Head;
+                while (current.Next != null)
                 {
                     current = current.Next;
                 }
-                toReturn = current.Next.Data;
-                current.Next = null;
+                return current.Data;
             }
-            return toReturn;
         }
 
-        //Returns the data stored in the object at the top of the stack without removing it
-        public T GetLast()
-        {
-            Node current = this.Head;
-            while (current.Next != null)
-            {
-                current = current.Next;
-            }
-            return current.Data;
-        }
-
-        //Iterates through the LinkedList and prints out all the objects (elements) in the LinkedList from start to finish
-        public void PrintContents()
-        {
-            Node current = this.Head;
-            Console.Write(current.Data);
-            while (current.Next != null)
-            {
-                current = current.Next;
-                Console.Write(", " + current.Data);
-            }
-            Console.WriteLine();
-        }
-
-        //Removes all objects from the list when called
+        //Removes all objects from the list when called. If list is empty, displays an error message 
         public void EmptyList()
         {
-            this.Head = null;
-        }
-
-        //Helper method that checks to see if a list is empty (has no elements), returns true if it is
-        public bool IsEmpty()
-        {
-            if (this.Head == null)
+            if(IsEmpty())
             {
-                return true;
+                Console.WriteLine("Operation failed! The list was already empty when the call was made...");
             }
             else
             {
-                return false;
+                this.Size = 0;
+                this.Head = null;
             }
+        }
+
+        //Helper method that checks to see if a list is empty (has no elements), returns true if it is
+        private bool IsEmpty()
+        {
+            return this.Size == 0;
         }
     }
 }

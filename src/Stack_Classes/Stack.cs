@@ -7,38 +7,42 @@ namespace Stack_Classes
     {
         private LinkedList<T> list;
 
-        //Class constructor, creates an instance of LinkedList to implement the Stack structure
+        public int Size{get; private set;}
+
+        //Class constructor, creates an instance of LinkedList to implement the Stack structure and initializes its size to zero
         public Stack()
         {
             this.list = new LinkedList<T>();
+            this.Size = 0;
         }
 
-        //Pushes an element (the passed in parameter) to the top of the stack when called and returns true to signal success
-        public bool Push(T data)
+        //Pushes an element (the passed in parameter) to the top of the stack when called and displays a message to the user to signal success
+        public void Push(T data)
         {
+            list.Add(data);
+            this.Size++;
             Console.WriteLine($"{data} was added to the stack!");
-            return list.Add(data);
         }
 
-        //Removes the object at the top of the stack and returns its data. Throws an exception if the stack is already empty. 
+        //Removes the object at the top of the stack and returns its data. Throws an InvalidOperationException if the stack is empty. 
         public T Pop()
         {
-            if (list.IsEmpty())
+            if (IsEmpty())
             {
                 throw new InvalidOperationException("Invalid operation! Cannot remove from an empty stack...");
             }
             else
             {
                 Console.WriteLine($"The item on at the top of the stack was removed successfully! That item was: {list.GetLast()}");
+                this.Size--;
                 return list.Remove();
             }
-
         }
 
         //Prints out all stack objects from oldest to newest or prints an error message if the stack is empty
         public void Print()
         {
-            if (list.IsEmpty())
+            if (IsEmpty())
             {
                 Console.WriteLine("Cannot print the contents of an empty stack...");
             }
@@ -48,35 +52,38 @@ namespace Stack_Classes
             }
         }
 
-        //Prints the object on the top of the stack without removing it if it exists or prints an error message
-        public bool Peak()
+        //Prints the element on the top of the stack without removing it if it exists. Throws an InvalidOperationException if the stack is empty
+        public T Peak()
         {
-            if (list.IsEmpty())
+            if (IsEmpty())
             {
-                Console.WriteLine("Error performing this operation! Cannot get the top element of an empty stack...");
-                return false;
+                throw new InvalidOperationException("Invalid operation! Cannot retrieve the top item of empty stack...");                
             }
             else
             {
                 Console.WriteLine($"The top element in the stack is: {list.GetLast()}");
-                return true;
+                return list.GetLast();
             }
         }
 
-        //Removes all objects from the stack and returns true to signal success or false if the stack was already empty
-        public bool Clear()
+        //Removes all objects from the stack if not empty. If stack is empty, displays an error message
+        public void Clear()
         {
-            if (list.IsEmpty())
+            if (IsEmpty())
             {
                 Console.WriteLine("Operation failed! The stack was already empty when the call was made...");
-                return false;
             }
             else
             {
-                Console.WriteLine("Stack was cleared successfully!");
+                this.Size = 0;
                 list.EmptyList();
-                return true;
+                Console.WriteLine("Stack was cleared successfully!");
             }
+        }
+
+        //helper method that checks if the stack is empty. If it is, returns true otherwise returns false
+        private bool IsEmpty(){
+            return this.Size == 0;
         }
     }
 }
